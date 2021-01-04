@@ -1,0 +1,19 @@
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        i = 0 
+        j = 0 
+        max_so_far = 0 
+        max_now = 0 
+        li = set()
+        while i < len(nums) and j < len(nums):
+            # print(li)
+            if nums[j] not in li:
+                li.add(nums[j])
+                max_now += nums[j] 
+                max_so_far = max(max_so_far, max_now)
+                j += 1
+            else:
+                max_now -= nums[i]
+                li.remove(nums[i])
+                i += 1
+        return max_so_far
