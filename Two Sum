@@ -1,0 +1,9 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        di = {}
+        for i, ele in enumerate(nums):
+            n = target -ele
+            if n not in di:
+                di[ele] = i
+            else:
+                return di[n], i
