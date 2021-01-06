@@ -1,0 +1,11 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_so_far = 9999999
+        profit_so_far = 0
+        for i in prices:
+            if i < min_so_far:
+                min_so_far = i
+                
+            if i - min_so_far > profit_so_far:
+                profit_so_far = i - min_so_far
+        return profit_so_far
